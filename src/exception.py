@@ -1,6 +1,8 @@
 # Sys Module:Python provides various functions and variables that are used to manipulate different parts of python runtime environment
 import sys 
-import logging # Import the logger module
+from src.logger import logging
+
+ # Import the logger module
 
 def error_message_detail(error,error_detail:sys):
     _,_,exc_tb=error_detail.exc_info()
@@ -20,8 +22,9 @@ class CustomException(Exception):
         return self.error_message
 
 if __name__ == "__main__":
+
     try:
         a=1/0
     except Exception as e:
-        logging.info("Logging has started")
+        logging.info("Divide By Zero")
         raise CustomException(e,sys)
